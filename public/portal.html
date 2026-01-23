@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Young Capital Advisory Client Portal - Access your projects, request meetings, and upload models for analysis.">
+    <meta name="robots" content="noindex, nofollow">
+
+    <title>Client Portal | Young Capital Advisory</title>
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>◆</text></svg>">
+
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/portal.css">
+</head>
+<body class="portal-page">
+    <!-- Navigation -->
+    <nav class="nav scrolled" id="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-icon">◆</span>
+                <span class="logo-text">Young Capital Advisory</span>
+            </a>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="index.html#services" class="nav-link">Services</a></li>
+                <li><a href="index.html#about" class="nav-link">About</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+                <li><a href="portal.html" class="nav-link nav-cta">Client Portal</a></li>
+            </ul>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Auth Container (Login/Signup) -->
+    <section class="auth-section" id="auth-section">
+        <div class="auth-container">
+            <div class="auth-card">
+                <div class="auth-header">
+                    <span class="logo-icon">◆</span>
+                    <h1 class="auth-title">Client Portal</h1>
+                    <p class="auth-subtitle">Access your projects, request meetings, and collaborate with our team.</p>
+                </div>
+
+                <!-- Login Form -->
+                <form class="auth-form" id="login-form">
+                    <div class="form-group">
+                        <label for="login-email" class="form-label">Email</label>
+                        <input type="email" id="login-email" name="email" class="form-input" placeholder="you@company.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="login-password" class="form-label">Password</label>
+                        <div class="password-input-wrapper">
+                            <input type="password" id="login-password" name="password" class="form-input" placeholder="Enter your password" required>
+                            <button type="button" class="password-toggle" aria-label="Toggle password visibility">
+                                <svg class="eye-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                    <circle cx="12" cy="12" r="3"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="form-options">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="remember">
+                            <span class="checkmark"></span>
+                            Remember me
+                        </label>
+                        <a href="#" class="forgot-link" id="forgot-password-link">Forgot password?</a>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">
+                        Sign In
+                        <svg class="btn-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                </form>
+
+                <!-- Signup Form (hidden by default) -->
+                <form class="auth-form hidden" id="signup-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="signup-firstname" class="form-label">First Name</label>
+                            <input type="text" id="signup-firstname" name="firstname" class="form-input" placeholder="John" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="signup-lastname" class="form-label">Last Name</label>
+                            <input type="text" id="signup-lastname" name="lastname" class="form-input" placeholder="Smith" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-company" class="form-label">Company</label>
+                        <input type="text" id="signup-company" name="company" class="form-input" placeholder="Company Name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-email" class="form-label">Email</label>
+                        <input type="email" id="signup-email" name="email" class="form-input" placeholder="you@company.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="signup-password" class="form-label">Password</label>
+                        <div class="password-input-wrapper">
+                            <input type="password" id="signup-password" name="password" class="form-input" placeholder="Create a password" required minlength="8">
+                            <button type="button" class="password-toggle" aria-label="Toggle password visibility">
+                                <svg class="eye-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                    <circle cx="12" cy="12" r="3"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <span class="form-hint">Minimum 8 characters</span>
+                    </div>
+                    <div class="form-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="terms" required>
+                            <span class="checkmark"></span>
+                            I agree to the <a href="#" class="terms-link">Terms of Service</a>
+                        </label>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">
+                        Create Account
+                        <svg class="btn-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                </form>
+
+                <!-- Forgot Password Form (hidden by default) -->
+                <form class="auth-form hidden" id="forgot-form">
+                    <p class="form-message-text">Enter your email address and we'll send you a link to reset your password.</p>
+                    <div class="form-group">
+                        <label for="forgot-email" class="form-label">Email</label>
+                        <input type="email" id="forgot-email" name="email" class="form-input" placeholder="you@company.com" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">
+                        Send Reset Link
+                    </button>
+                    <button type="button" class="btn btn-secondary btn-full" id="back-to-login">
+                        Back to Sign In
+                    </button>
+                </form>
+
+                <div class="auth-footer" id="auth-footer-login">
+                    <p>Don't have an account? <a href="#" class="auth-switch" id="show-signup">Create one</a></p>
+                </div>
+                <div class="auth-footer hidden" id="auth-footer-signup">
+                    <p>Already have an account? <a href="#" class="auth-switch" id="show-login">Sign in</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard (hidden until logged in) -->
+    <section class="dashboard-section hidden" id="dashboard-section">
+        <div class="dashboard-container">
+            <!-- Sidebar -->
+            <aside class="dashboard-sidebar">
+                <div class="sidebar-header">
+                    <span class="user-avatar" id="user-avatar">JS</span>
+                    <div class="user-info">
+                        <span class="user-name" id="user-name">John Smith</span>
+                        <span class="user-company" id="user-company">Acme Capital</span>
+                    </div>
+                </div>
+                <nav class="sidebar-nav">
+                    <a href="#" class="sidebar-link active" data-tab="overview">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="3" y="3" width="7" height="7"/>
+                            <rect x="14" y="3" width="7" height="7"/>
+                            <rect x="14" y="14" width="7" height="7"/>
+                            <rect x="3" y="14" width="7" height="7"/>
+                        </svg>
+                        Overview
+                    </a>
+                    <a href="#" class="sidebar-link" data-tab="requests">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+                            <polyline points="14,2 14,8 20,8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                        </svg>
+                        Service Requests
+                    </a>
+                    <a href="#" class="sidebar-link" data-tab="meetings">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                            <line x1="16" y1="2" x2="16" y2="6"/>
+                            <line x1="8" y1="2" x2="8" y2="6"/>
+                            <line x1="3" y1="10" x2="21" y2="10"/>
+                        </svg>
+                        Schedule Meeting
+                    </a>
+                    <a href="#" class="sidebar-link" data-tab="uploads">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                            <polyline points="17,8 12,3 7,8"/>
+                            <line x1="12" y1="3" x2="12" y2="15"/>
+                        </svg>
+                        Upload Models
+                    </a>
+                    <a href="#" class="sidebar-link" data-tab="files">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/>
+                        </svg>
+                        My Files
+                    </a>
+                    <a href="#" class="sidebar-link" data-tab="settings">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="3"/>
+                            <path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/>
+                        </svg>
+                        Settings
+                    </a>
+                </nav>
+                <div class="sidebar-footer">
+                    <button class="logout-btn" id="logout-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/>
+                            <polyline points="16,17 21,12 16,7"/>
+                            <line x1="21" y1="12" x2="9" y2="12"/>
+                        </svg>
+                        Sign Out
+                    </button>
+                </div>
+            </aside>
+
+            <!-- Main Content -->
+            <main class="dashboard-main">
+                <!-- Overview Tab -->
+                <div class="dashboard-tab active" id="tab-overview">
+                    <div class="tab-header">
+                        <h2 class="tab-title">Welcome back, <span id="welcome-name">John</span></h2>
+                        <p class="tab-subtitle">Here's an overview of your account activity.</p>
+                    </div>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+                                    <polyline points="14,2 14,8 20,8"/>
+                                </svg>
+                            </div>
+                            <div class="stat-content">
+                                <span class="stat-value" id="stat-requests">0</span>
+                                <span class="stat-label">Active Requests</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                    <line x1="16" y1="2" x2="16" y2="6"/>
+                                    <line x1="8" y1="2" x2="8" y2="6"/>
+                                    <line x1="3" y1="10" x2="21" y2="10"/>
+                                </svg>
+                            </div>
+                            <div class="stat-content">
+                                <span class="stat-value" id="stat-meetings">0</span>
+                                <span class="stat-label">Scheduled Meetings</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                                    <polyline points="17,8 12,3 7,8"/>
+                                    <line x1="12" y1="3" x2="12" y2="15"/>
+                                </svg>
+                            </div>
+                            <div class="stat-content">
+                                <span class="stat-value" id="stat-uploads">0</span>
+                                <span class="stat-label">Uploaded Files</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="quick-actions">
+                        <h3 class="section-subtitle">Quick Actions</h3>
+                        <div class="actions-grid">
+                            <button class="action-card" data-action="new-request">
+                                <div class="action-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <circle cx="12" cy="12" r="10"/>
+                                        <line x1="12" y1="8" x2="12" y2="16"/>
+                                        <line x1="8" y1="12" x2="16" y2="12"/>
+                                    </svg>
+                                </div>
+                                <span>New Service Request</span>
+                            </button>
+                            <button class="action-card" data-action="schedule-meeting">
+                                <div class="action-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <rect x="3" y="4" width="18" height="18" rx="2"/>
+                                        <line x1="16" y1="2" x2="16" y2="6"/>
+                                        <line x1="8" y1="2" x2="8" y2="6"/>
+                                        <line x1="3" y1="10" x2="21" y2="10"/>
+                                        <circle cx="12" cy="15" r="2"/>
+                                    </svg>
+                                </div>
+                                <span>Schedule a Meeting</span>
+                            </button>
+                            <button class="action-card" data-action="upload-model">
+                                <div class="action-icon">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                        <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                                        <polyline points="17,8 12,3 7,8"/>
+                                        <line x1="12" y1="3" x2="12" y2="15"/>
+                                    </svg>
+                                </div>
+                                <span>Upload Model</span>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="recent-activity">
+                        <h3 class="section-subtitle">Recent Activity</h3>
+                        <div class="activity-list" id="activity-list">
+                            <div class="empty-state">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <line x1="12" y1="8" x2="12" y2="12"/>
+                                    <line x1="12" y1="16" x2="12.01" y2="16"/>
+                                </svg>
+                                <p>No recent activity</p>
+                                <span>Your recent actions will appear here</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service Requests Tab -->
+                <div class="dashboard-tab" id="tab-requests">
+                    <div class="tab-header">
+                        <h2 class="tab-title">Service Requests</h2>
+                        <p class="tab-subtitle">Submit and track your modeling requests.</p>
+                    </div>
+                    <div class="tab-content-split">
+                        <div class="request-form-container">
+                            <h3 class="section-subtitle">New Request</h3>
+                            <form class="request-form" id="service-request-form">
+                                <div class="form-group">
+                                    <label for="request-type" class="form-label">Request Type</label>
+                                    <select id="request-type" name="type" class="form-input form-select" required>
+                                        <option value="">Select a service...</option>
+                                        <option value="financial-model">Custom Financial Model</option>
+                                        <option value="model-audit">Model Review & Audit</option>
+                                        <option value="reporting">Reporting Standardization</option>
+                                        <option value="workflow">Workflow Optimization</option>
+                                        <option value="capital">LP Capital Solutions</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="request-property-type" class="form-label">Property Type</label>
+                                    <select id="request-property-type" name="propertyType" class="form-input form-select" required>
+                                        <option value="">Select property type...</option>
+                                        <option value="multifamily">Multifamily</option>
+                                        <option value="industrial">Industrial</option>
+                                        <option value="office">Office</option>
+                                        <option value="self-storage">Self-Storage</option>
+                                        <option value="data-center">Data Center</option>
+                                        <option value="manufactured-housing">Manufactured Housing</option>
+                                        <option value="mixed">Mixed-Use / Portfolio</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="request-title" class="form-label">Project Title</label>
+                                    <input type="text" id="request-title" name="title" class="form-input" placeholder="e.g., 200-Unit Multifamily Acquisition Model" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="request-description" class="form-label">Description</label>
+                                    <textarea id="request-description" name="description" class="form-input form-textarea" rows="4" placeholder="Describe your project requirements, timeline, and any specific needs..." required></textarea>
+                                </div>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="request-budget" class="form-label">Budget Range</label>
+                                        <select id="request-budget" name="budget" class="form-input form-select">
+                                            <option value="">Select range...</option>
+                                            <option value="under-5k">Under $5,000</option>
+                                            <option value="5k-10k">$5,000 - $10,000</option>
+                                            <option value="10k-25k">$10,000 - $25,000</option>
+                                            <option value="25k-plus">$25,000+</option>
+                                            <option value="discuss">Let's Discuss</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="request-timeline" class="form-label">Timeline</label>
+                                        <select id="request-timeline" name="timeline" class="form-input form-select">
+                                            <option value="">Select timeline...</option>
+                                            <option value="urgent">Urgent (< 1 week)</option>
+                                            <option value="standard">Standard (1-2 weeks)</option>
+                                            <option value="flexible">Flexible (2-4 weeks)</option>
+                                            <option value="ongoing">Ongoing Project</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary">
+                                    Submit Request
+                                    <svg class="btn-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                                    </svg>
+                                </button>
+                            </form>
+                        </div>
+                        <div class="requests-list-container">
+                            <h3 class="section-subtitle">Your Requests</h3>
+                            <div class="requests-list" id="requests-list">
+                                <div class="empty-state">
+                                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                                        <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/>
+                                        <polyline points="14,2 14,8 20,8"/>
+                                    </svg>
+                                    <p>No requests yet</p>
+                                    <span>Submit your first request using the form</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Schedule Meeting Tab -->
+                <div class="dashboard-tab" id="tab-meetings">
+                    <div class="tab-header">
+                        <h2 class="tab-title">Schedule a Meeting</h2>
+                        <p class="tab-subtitle">Book a call to discuss your project requirements.</p>
+                    </div>
+                    <div class="meeting-container">
+                        <div class="meeting-form-wrapper">
+                            <form class="meeting-form" id="meeting-form">
+                                <div class="form-group">
+                                    <label for="meeting-type" class="form-label">Meeting Type</label>
+                                    <select id="meeting-type" name="type" class="form-input form-select" required>
+                                        <option value="">Select meeting type...</option>
+                                        <option value="intro">Introductory Call (15 min)</option>
+                                        <option value="project">Project Discussion (30 min)</option>
+                                        <option value="review">Model Review Session (45 min)</option>
+                                        <option value="strategy">Strategy Consultation (60 min)</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="meeting-date" class="form-label">Preferred Date</label>
+                                    <input type="date" id="meeting-date" name="date" class="form-input" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="meeting-time" class="form-label">Preferred Time (EST)</label>
+                                    <select id="meeting-time" name="time" class="form-input form-select" required>
+                                        <option value="">Select a time...</option>
+                                        <option value="09:00">9:00 AM</option>
+                                        <option value="09:30">9:30 AM</option>
+                                        <option value="10:00">10:00 AM</option>
+                                        <option value="10:30">10:30 AM</option>
+                                        <option value="11:00">11:00 AM</option>
+                                        <option value="11:30">11:30 AM</option>
+                                        <option value="12:00">12:00 PM</option>
+                                        <option value="12:30">12:30 PM</option>
+                                        <option value="13:00">1:00 PM</option>
+                                        <option value="13:30">1:30 PM</option>
+                                        <option value="14:00">2:00 PM</option>
+                                        <option value="14:30">2:30 PM</option>
+                                        <option value="15:00">3:00 PM</option>
+                                        <option value="15:30">3:30 PM</option>
+                                        <option value="16:00">4:00 PM</option>
+                                        <option value="16:30">4:30 PM</option>
+                                        <option value="17:00">5:00 PM</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="meeting-topic" class="form-label">Meeting Topic</label>
+                                    <textarea id="meeting-topic" name="topic" class="form-input form-textarea" rows="3" placeholder="Brief description of what you'd like to discuss..." required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">
+                                    Request Meeting
+                                    <svg class="btn-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                                    </svg>
+                                </button>
+                            </form>
+                        </div>
+                        <div class="scheduled-meetings">
+                            <h3 class="section-subtitle">Upcoming Meetings</h3>
+                            <div class="meetings-list" id="meetings-list">
+                                <div class="empty-state">
+                                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                        <line x1="16" y1="2" x2="16" y2="6"/>
+                                        <line x1="8" y1="2" x2="8" y2="6"/>
+                                        <line x1="3" y1="10" x2="21" y2="10"/>
+                                    </svg>
+                                    <p>No meetings scheduled</p>
+                                    <span>Book your first meeting using the form</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Upload Models Tab -->
+                <div class="dashboard-tab" id="tab-uploads">
+                    <div class="tab-header">
+                        <h2 class="tab-title">Upload Models</h2>
+                        <p class="tab-subtitle">Share your Excel models for review or analysis.</p>
+                    </div>
+                    <div class="upload-container">
+                        <div class="upload-zone" id="upload-zone">
+                            <div class="upload-icon">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+                                    <polyline points="17,8 12,3 7,8"/>
+                                    <line x1="12" y1="3" x2="12" y2="15"/>
+                                </svg>
+                            </div>
+                            <p class="upload-text">Drag and drop files here, or <span class="upload-browse">browse</span></p>
+                            <p class="upload-hint">Accepted formats: .xlsx, .xlsm, .xls, .pdf (Max 50MB)</p>
+                            <input type="file" id="file-input" accept=".xlsx,.xlsm,.xls,.pdf" multiple hidden>
+                        </div>
+                        <div class="upload-form-wrapper">
+                            <form class="upload-form" id="upload-form">
+                                <div class="form-group">
+                                    <label for="upload-project" class="form-label">Related Project (Optional)</label>
+                                    <select id="upload-project" name="project" class="form-input form-select">
+                                        <option value="">Select a project...</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="upload-notes" class="form-label">Notes</label>
+                                    <textarea id="upload-notes" name="notes" class="form-input form-textarea" rows="3" placeholder="Any specific areas to focus on, known issues, or context for the model..."></textarea>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="upload-queue" id="upload-queue">
+                            <!-- Files will be listed here -->
+                        </div>
+                        <button class="btn btn-primary hidden" id="upload-submit-btn">
+                            Upload Files
+                            <svg class="btn-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- My Files Tab -->
+                <div class="dashboard-tab" id="tab-files">
+                    <div class="tab-header">
+                        <h2 class="tab-title">My Files</h2>
+                        <p class="tab-subtitle">Access your uploaded files and delivered work products.</p>
+                    </div>
+                    <div class="files-container">
+                        <div class="files-filter">
+                            <button class="filter-btn active" data-filter="all">All Files</button>
+                            <button class="filter-btn" data-filter="uploaded">Uploaded</button>
+                            <button class="filter-btn" data-filter="delivered">Delivered</button>
+                        </div>
+                        <div class="files-list" id="files-list">
+                            <div class="empty-state">
+                                <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+                                    <path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/>
+                                </svg>
+                                <p>No files yet</p>
+                                <span>Upload your first file to get started</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Settings Tab -->
+                <div class="dashboard-tab" id="tab-settings">
+                    <div class="tab-header">
+                        <h2 class="tab-title">Account Settings</h2>
+                        <p class="tab-subtitle">Manage your profile and preferences.</p>
+                    </div>
+                    <div class="settings-container">
+                        <div class="settings-section">
+                            <h3 class="section-subtitle">Profile Information</h3>
+                            <form class="settings-form" id="profile-form">
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="settings-firstname" class="form-label">First Name</label>
+                                        <input type="text" id="settings-firstname" name="firstname" class="form-input">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="settings-lastname" class="form-label">Last Name</label>
+                                        <input type="text" id="settings-lastname" name="lastname" class="form-input">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="settings-company" class="form-label">Company</label>
+                                    <input type="text" id="settings-company" name="company" class="form-input">
+                                </div>
+                                <div class="form-group">
+                                    <label for="settings-email" class="form-label">Email</label>
+                                    <input type="email" id="settings-email" name="email" class="form-input" disabled>
+                                    <span class="form-hint">Contact support to change your email</span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="settings-phone" class="form-label">Phone (Optional)</label>
+                                    <input type="tel" id="settings-phone" name="phone" class="form-input" placeholder="+1 (555) 000-0000">
+                                </div>
+                                <button type="submit" class="btn btn-primary">Save Changes</button>
+                            </form>
+                        </div>
+                        <div class="settings-section">
+                            <h3 class="section-subtitle">Change Password</h3>
+                            <form class="settings-form" id="password-form">
+                                <div class="form-group">
+                                    <label for="current-password" class="form-label">Current Password</label>
+                                    <input type="password" id="current-password" name="currentPassword" class="form-input" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="new-password" class="form-label">New Password</label>
+                                    <input type="password" id="new-password" name="newPassword" class="form-input" required minlength="8">
+                                    <span class="form-hint">Minimum 8 characters</span>
+                                </div>
+                                <div class="form-group">
+                                    <label for="confirm-password" class="form-label">Confirm New Password</label>
+                                    <input type="password" id="confirm-password" name="confirmPassword" class="form-input" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Update Password</button>
+                            </form>
+                        </div>
+                        <div class="settings-section">
+                            <h3 class="section-subtitle">Notification Preferences</h3>
+                            <div class="notification-options">
+                                <label class="toggle-label">
+                                    <input type="checkbox" name="email-updates" checked>
+                                    <span class="toggle-switch"></span>
+                                    <span class="toggle-text">Email updates on project status</span>
+                                </label>
+                                <label class="toggle-label">
+                                    <input type="checkbox" name="meeting-reminders" checked>
+                                    <span class="toggle-switch"></span>
+                                    <span class="toggle-text">Meeting reminders</span>
+                                </label>
+                                <label class="toggle-label">
+                                    <input type="checkbox" name="file-notifications" checked>
+                                    <span class="toggle-switch"></span>
+                                    <span class="toggle-text">File delivery notifications</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </section>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <script src="js/script.js"></script>
+    <script src="js/portal.js"></script>
+</body>
+</html>
