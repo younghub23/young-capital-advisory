@@ -246,15 +246,105 @@
     initHeroAnimations();
 
     // ==========================================================================
+    // Service Modals
+    // ==========================================================================
+
+    const modalOverlay = document.getElementById('modal-overlay');
+    const serviceCards = document.querySelectorAll('.service-card[data-modal]');
+    const modalCloseButtons = document.querySelectorAll('.modal-close');
+
+    let currentModal = null;
+
+    /**
+     * Open a modal by ID
+     */
+    function openModal(modalId) {
+        const modal = document.getElementById(`modal-${modalId}`);
+        if (!modal || !modalOverlay) return;
+
+        // Close any currently open modal
+        if (currentModal) {
+            currentModal.classList.remove('active');
+        }
+
+        // Open new modal
+        currentModal = modal;
+        modalOverlay.classList.add('active');
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+
+        // Focus the close button for accessibility
+        const closeBtn = modal.querySelector('.modal-close');
+        if (closeBtn) {
+            setTimeout(() => closeBtn.focus(), 100);
+        }
+    }
+
+    /**
+     * Close the current modal
+     */
+    function closeModal() {
+        if (!modalOverlay) return;
+
+        modalOverlay.classList.remove('active');
+
+        if (currentModal) {
+            currentModal.classList.remove('active');
+            currentModal = null;
+        }
+
+        document.body.style.overflow = '';
+    }
+
+    // Service card click handlers
+    serviceCards.forEach(card => {
+        card.addEventListener('click', () => {
+            const modalId = card.getAttribute('data-modal');
+            openModal(modalId);
+        });
+
+        // Keyboard accessibility
+        card.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                const modalId = card.getAttribute('data-modal');
+                openModal(modalId);
+            }
+        });
+    });
+
+    // Close button handlers
+    modalCloseButtons.forEach(btn => {
+        btn.addEventListener('click', closeModal);
+    });
+
+    // Close on overlay click (but not on modal content)
+    if (modalOverlay) {
+        modalOverlay.addEventListener('click', (e) => {
+            if (e.target === modalOverlay) {
+                closeModal();
+            }
+        });
+    }
+
+    // ==========================================================================
     // Keyboard Navigation
     // ==========================================================================
 
     /**
-     * Handle escape key for mobile menu
+     * Handle escape key for mobile menu and modals
      */
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && navMenu.classList.contains('active')) {
-            closeMobileNav();
+        if (e.key === 'Escape') {
+            // Close modal first if open
+            if (currentModal) {
+                closeModal();
+                return;
+            }
+            // Otherwise close mobile nav
+            if (navMenu.classList.contains('active')) {
+                closeMobileNav();
+            }
         }
     });
 

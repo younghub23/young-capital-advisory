@@ -88,7 +88,7 @@
             </div>
             <div class="services-grid">
                 <!-- Service 1 -->
-                <div class="service-card fade-in">
+                <div class="service-card fade-in" data-modal="financial-models" role="button" tabindex="0">
                     <div class="service-icon">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                             <rect x="3" y="3" width="18" height="18" rx="2"/>
@@ -98,10 +98,11 @@
                     </div>
                     <h3 class="service-title">Custom Excel-Based Financial Models</h3>
                     <p class="service-desc">Development pro formas, acquisition underwriting, and asset management models built to institutional standards. Multifamily, industrial, office, data centers, self-storage, and manufactured housing.</p>
+                    <span class="service-cta">Learn more <span class="arrow">→</span></span>
                 </div>
 
                 <!-- Service 2 -->
-                <div class="service-card fade-in">
+                <div class="service-card fade-in" data-modal="model-audit" role="button" tabindex="0">
                     <div class="service-icon">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                             <path d="M9 12l2 2 4-4"/>
@@ -110,10 +111,11 @@
                     </div>
                     <h3 class="service-title">Model Review & Audit</h3>
                     <p class="service-desc">Independent review of existing financial models for accuracy, logic errors, and structural integrity. Ideal for investment committees and capital partners requiring third-party validation.</p>
+                    <span class="service-cta">Learn more <span class="arrow">→</span></span>
                 </div>
 
                 <!-- Service 3 -->
-                <div class="service-card fade-in">
+                <div class="service-card fade-in" data-modal="reporting" role="button" tabindex="0">
                     <div class="service-icon">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                             <path d="M9 17H5a2 2 0 00-2 2v0a2 2 0 002 2h14a2 2 0 002-2v0a2 2 0 00-2-2h-4"/>
@@ -123,10 +125,11 @@
                     </div>
                     <h3 class="service-title">Reporting Standardization</h3>
                     <p class="service-desc">Transform inconsistent investor reporting into professional, standardized templates. Clear, defensible outputs that meet institutional LP expectations.</p>
+                    <span class="service-cta">Learn more <span class="arrow">→</span></span>
                 </div>
 
                 <!-- Service 4 -->
-                <div class="service-card fade-in">
+                <div class="service-card fade-in" data-modal="workflow" role="button" tabindex="0">
                     <div class="service-icon">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                             <path d="M12 2v4"/>
@@ -141,10 +144,11 @@
                     </div>
                     <h3 class="service-title">Workflow & Efficiency Optimization</h3>
                     <p class="service-desc">Streamline repetitive modeling tasks through structured templates and VBA automation. Reduce errors and accelerate deal timelines.</p>
+                    <span class="service-cta">Learn more <span class="arrow">→</span></span>
                 </div>
 
                 <!-- Service 5 -->
-                <div class="service-card fade-in">
+                <div class="service-card fade-in" data-modal="capital" role="button" tabindex="0">
                     <div class="service-icon">
                         <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                             <path d="M12 2L2 7l10 5 10-5-10-5z"/>
@@ -154,6 +158,7 @@
                     </div>
                     <h3 class="service-title">LP Capital Solutions</h3>
                     <p class="service-desc">Equity placement for qualified Multifamily, Industrial, and Self-Storage opportunities. Direct relationships with institutional and family office capital sources.</p>
+                    <span class="service-cta">Learn more <span class="arrow">→</span></span>
                 </div>
             </div>
         </div>
@@ -194,14 +199,14 @@
                     <h2 class="section-title fade-in">Let's Talk</h2>
                     <p class="contact-text fade-in">Ready to discuss your next project? Reach out directly or schedule a call.</p>
                     <div class="contact-details fade-in">
-                        <a href="mailto:jp@youngcapitaladvisory.com" class="contact-link">
+                        <a href="mailto:jpyoung939@gmail.com" class="contact-link">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                                 <rect x="2" y="4" width="20" height="16" rx="2"/>
                                 <path d="M22 6l-10 7L2 6"/>
                             </svg>
-                            jp@youngcapitaladvisory.com
+                            jpyoung939@gmail.com
                         </a>
-                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="contact-link">
+                        <a href="https://www.linkedin.com/in/john-paul-young-265390142" target="_blank" rel="noopener noreferrer" class="contact-link">
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                                 <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/>
                                 <rect x="2" y="9" width="4" height="12"/>
@@ -250,6 +255,462 @@
             </div>
         </div>
     </footer>
+
+    <!-- Service Modals -->
+    <div class="modal-overlay" id="modal-overlay">
+        <!-- Financial Models Modal -->
+        <div class="modal" id="modal-financial-models">
+            <button class="modal-close" aria-label="Close modal">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6L6 18M6 6l12 12"/>
+                </svg>
+            </button>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <rect x="3" y="3" width="18" height="18" rx="2"/>
+                            <path d="M3 9h18"/>
+                            <path d="M9 21V9"/>
+                        </svg>
+                    </div>
+                    <h2 class="modal-title">Custom Excel-Based Financial Models</h2>
+                </div>
+                <div class="modal-body">
+                    <p class="modal-intro">We build institutional-quality financial models tailored to your specific deal structure, asset type, and investor requirements. Every model is designed for clarity, auditability, and real-world usability.</p>
+
+                    <div class="modal-diagram">
+                        <svg viewBox="0 0 600 280" class="diagram-svg">
+                            <!-- Model Structure Diagram -->
+                            <defs>
+                                <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                    <stop offset="0%" style="stop-color:#c9a962;stop-opacity:0.8"/>
+                                    <stop offset="100%" style="stop-color:#dbb978;stop-opacity:0.8"/>
+                                </linearGradient>
+                            </defs>
+                            <!-- Inputs Section -->
+                            <rect x="20" y="20" width="160" height="240" rx="8" fill="rgba(201,169,98,0.1)" stroke="#c9a962" stroke-width="1"/>
+                            <text x="100" y="50" text-anchor="middle" fill="#c9a962" font-size="14" font-weight="600">INPUTS</text>
+                            <text x="100" y="80" text-anchor="middle" fill="#94a3b8" font-size="11">Acquisition Price</text>
+                            <text x="100" y="100" text-anchor="middle" fill="#94a3b8" font-size="11">Rent Roll</text>
+                            <text x="100" y="120" text-anchor="middle" fill="#94a3b8" font-size="11">Operating Expenses</text>
+                            <text x="100" y="140" text-anchor="middle" fill="#94a3b8" font-size="11">Financing Terms</text>
+                            <text x="100" y="160" text-anchor="middle" fill="#94a3b8" font-size="11">Growth Assumptions</text>
+                            <text x="100" y="180" text-anchor="middle" fill="#94a3b8" font-size="11">Capital Expenditures</text>
+                            <text x="100" y="200" text-anchor="middle" fill="#94a3b8" font-size="11">Hold Period</text>
+                            <text x="100" y="220" text-anchor="middle" fill="#94a3b8" font-size="11">Exit Cap Rate</text>
+
+                            <!-- Arrow 1 -->
+                            <path d="M190 140 L210 140" stroke="#c9a962" stroke-width="2" fill="none"/>
+                            <polygon points="210,136 220,140 210,144" fill="#c9a962"/>
+
+                            <!-- Analysis Engine -->
+                            <rect x="220" y="60" width="160" height="160" rx="8" fill="rgba(201,169,98,0.15)" stroke="#c9a962" stroke-width="2"/>
+                            <text x="300" y="95" text-anchor="middle" fill="#c9a962" font-size="14" font-weight="600">ANALYSIS</text>
+                            <text x="300" y="125" text-anchor="middle" fill="#94a3b8" font-size="11">Cash Flow Projections</text>
+                            <text x="300" y="145" text-anchor="middle" fill="#94a3b8" font-size="11">Debt Service Coverage</text>
+                            <text x="300" y="165" text-anchor="middle" fill="#94a3b8" font-size="11">Waterfall Distribution</text>
+                            <text x="300" y="185" text-anchor="middle" fill="#94a3b8" font-size="11">Sensitivity Analysis</text>
+
+                            <!-- Arrow 2 -->
+                            <path d="M390 140 L410 140" stroke="#c9a962" stroke-width="2" fill="none"/>
+                            <polygon points="410,136 420,140 410,144" fill="#c9a962"/>
+
+                            <!-- Outputs Section -->
+                            <rect x="420" y="20" width="160" height="240" rx="8" fill="rgba(201,169,98,0.1)" stroke="#c9a962" stroke-width="1"/>
+                            <text x="500" y="50" text-anchor="middle" fill="#c9a962" font-size="14" font-weight="600">OUTPUTS</text>
+                            <text x="500" y="80" text-anchor="middle" fill="#94a3b8" font-size="11">Investor Returns (IRR)</text>
+                            <text x="500" y="100" text-anchor="middle" fill="#94a3b8" font-size="11">Equity Multiple</text>
+                            <text x="500" y="120" text-anchor="middle" fill="#94a3b8" font-size="11">Cash-on-Cash</text>
+                            <text x="500" y="140" text-anchor="middle" fill="#94a3b8" font-size="11">GP Promote Schedule</text>
+                            <text x="500" y="160" text-anchor="middle" fill="#94a3b8" font-size="11">LP Distributions</text>
+                            <text x="500" y="180" text-anchor="middle" fill="#94a3b8" font-size="11">Exit Proceeds</text>
+                            <text x="500" y="200" text-anchor="middle" fill="#94a3b8" font-size="11">Key Metrics Dashboard</text>
+                            <text x="500" y="220" text-anchor="middle" fill="#94a3b8" font-size="11">Investor Reports</text>
+                        </svg>
+                    </div>
+
+                    <h3 class="modal-subtitle">Asset Types We Model</h3>
+                    <ul class="modal-list">
+                        <li>Multifamily (garden, mid-rise, high-rise)</li>
+                        <li>Industrial & Logistics</li>
+                        <li>Office (traditional & flex)</li>
+                        <li>Data Centers</li>
+                        <li>Self-Storage</li>
+                        <li>Manufactured Housing Communities</li>
+                    </ul>
+
+                    <h3 class="modal-subtitle">Model Types</h3>
+                    <div class="modal-features">
+                        <div class="feature-item">
+                            <span class="feature-label">Development Pro Forma</span>
+                            <span class="feature-desc">Ground-up construction with draw schedules, cost tracking, and lease-up projections</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-label">Acquisition Underwriting</span>
+                            <span class="feature-desc">Value-add and stabilized acquisitions with detailed renovation budgets and return scenarios</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-label">Asset Management</span>
+                            <span class="feature-desc">Ongoing portfolio tracking with actual vs. budget variance analysis</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-label">Fund Models</span>
+                            <span class="feature-desc">Multi-asset fund structures with capital call schedules and aggregated returns</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Model Audit Modal -->
+        <div class="modal" id="modal-model-audit">
+            <button class="modal-close" aria-label="Close modal">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6L6 18M6 6l12 12"/>
+                </svg>
+            </button>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M9 12l2 2 4-4"/>
+                            <path d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                    </div>
+                    <h2 class="modal-title">Model Review & Audit</h2>
+                </div>
+                <div class="modal-body">
+                    <p class="modal-intro">Independent third-party validation of financial models for investment committees, capital partners, and due diligence processes. We identify errors before they become costly mistakes.</p>
+
+                    <div class="modal-diagram">
+                        <svg viewBox="0 0 600 200" class="diagram-svg">
+                            <!-- Audit Process Flow -->
+                            <rect x="20" y="70" width="100" height="60" rx="6" fill="rgba(201,169,98,0.15)" stroke="#c9a962"/>
+                            <text x="70" y="95" text-anchor="middle" fill="#c9a962" font-size="11" font-weight="600">RECEIVE</text>
+                            <text x="70" y="112" text-anchor="middle" fill="#94a3b8" font-size="10">Model Files</text>
+
+                            <path d="M130 100 L155 100" stroke="#c9a962" stroke-width="2"/>
+                            <polygon points="155,96 165,100 155,104" fill="#c9a962"/>
+
+                            <rect x="170" y="70" width="100" height="60" rx="6" fill="rgba(201,169,98,0.15)" stroke="#c9a962"/>
+                            <text x="220" y="95" text-anchor="middle" fill="#c9a962" font-size="11" font-weight="600">ANALYZE</text>
+                            <text x="220" y="112" text-anchor="middle" fill="#94a3b8" font-size="10">Structure & Logic</text>
+
+                            <path d="M280 100 L305 100" stroke="#c9a962" stroke-width="2"/>
+                            <polygon points="305,96 315,100 305,104" fill="#c9a962"/>
+
+                            <rect x="320" y="70" width="100" height="60" rx="6" fill="rgba(201,169,98,0.15)" stroke="#c9a962"/>
+                            <text x="370" y="95" text-anchor="middle" fill="#c9a962" font-size="11" font-weight="600">TEST</text>
+                            <text x="370" y="112" text-anchor="middle" fill="#94a3b8" font-size="10">Formulas & Calcs</text>
+
+                            <path d="M430 100 L455 100" stroke="#c9a962" stroke-width="2"/>
+                            <polygon points="455,96 465,100 455,104" fill="#c9a962"/>
+
+                            <rect x="470" y="70" width="110" height="60" rx="6" fill="rgba(201,169,98,0.2)" stroke="#c9a962" stroke-width="2"/>
+                            <text x="525" y="95" text-anchor="middle" fill="#c9a962" font-size="11" font-weight="600">DELIVER</text>
+                            <text x="525" y="112" text-anchor="middle" fill="#94a3b8" font-size="10">Audit Report</text>
+
+                            <!-- Check marks below -->
+                            <g transform="translate(70, 155)">
+                                <circle cx="0" cy="0" r="12" fill="rgba(34,197,94,0.2)" stroke="#22c55e"/>
+                                <path d="M-5 0 L-2 3 L5 -4" stroke="#22c55e" stroke-width="2" fill="none"/>
+                            </g>
+                            <text x="70" y="185" text-anchor="middle" fill="#94a3b8" font-size="9">Scoping</text>
+
+                            <g transform="translate(220, 155)">
+                                <circle cx="0" cy="0" r="12" fill="rgba(34,197,94,0.2)" stroke="#22c55e"/>
+                                <path d="M-5 0 L-2 3 L5 -4" stroke="#22c55e" stroke-width="2" fill="none"/>
+                            </g>
+                            <text x="220" y="185" text-anchor="middle" fill="#94a3b8" font-size="9">Review</text>
+
+                            <g transform="translate(370, 155)">
+                                <circle cx="0" cy="0" r="12" fill="rgba(34,197,94,0.2)" stroke="#22c55e"/>
+                                <path d="M-5 0 L-2 3 L5 -4" stroke="#22c55e" stroke-width="2" fill="none"/>
+                            </g>
+                            <text x="370" y="185" text-anchor="middle" fill="#94a3b8" font-size="9">Validation</text>
+
+                            <g transform="translate(525, 155)">
+                                <circle cx="0" cy="0" r="12" fill="rgba(34,197,94,0.2)" stroke="#22c55e"/>
+                                <path d="M-5 0 L-2 3 L5 -4" stroke="#22c55e" stroke-width="2" fill="none"/>
+                            </g>
+                            <text x="525" y="185" text-anchor="middle" fill="#94a3b8" font-size="9">Sign-off</text>
+                        </svg>
+                    </div>
+
+                    <h3 class="modal-subtitle">What We Check</h3>
+                    <ul class="modal-list">
+                        <li>Formula accuracy and circular reference detection</li>
+                        <li>Cash flow timing and discounting methodology</li>
+                        <li>Waterfall logic and promote calculations</li>
+                        <li>Debt sizing and covenant compliance</li>
+                        <li>Tax calculations and depreciation schedules</li>
+                        <li>Sensitivity and scenario consistency</li>
+                    </ul>
+
+                    <h3 class="modal-subtitle">Deliverables</h3>
+                    <div class="modal-features">
+                        <div class="feature-item">
+                            <span class="feature-label">Audit Report</span>
+                            <span class="feature-desc">Detailed findings document with severity ratings and recommended fixes</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-label">Error Log</span>
+                            <span class="feature-desc">Itemized list of issues with cell references and correction guidance</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-label">Sign-off Letter</span>
+                            <span class="feature-desc">Professional attestation suitable for investment committee presentation</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Reporting Modal -->
+        <div class="modal" id="modal-reporting">
+            <button class="modal-close" aria-label="Close modal">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6L6 18M6 6l12 12"/>
+                </svg>
+            </button>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M9 17H5a2 2 0 00-2 2v0a2 2 0 002 2h14a2 2 0 002-2v0a2 2 0 00-2-2h-4"/>
+                            <path d="M12 17V3"/>
+                            <path d="M8 7l4-4 4 4"/>
+                        </svg>
+                    </div>
+                    <h2 class="modal-title">Reporting Standardization</h2>
+                </div>
+                <div class="modal-body">
+                    <p class="modal-intro">Transform inconsistent, ad-hoc investor communications into professional reporting packages that meet institutional LP expectations and build long-term credibility.</p>
+
+                    <div class="modal-diagram">
+                        <svg viewBox="0 0 600 220" class="diagram-svg">
+                            <!-- Before/After comparison -->
+                            <!-- Before -->
+                            <rect x="20" y="20" width="250" height="180" rx="8" fill="rgba(239,68,68,0.08)" stroke="rgba(239,68,68,0.3)"/>
+                            <text x="145" y="50" text-anchor="middle" fill="#ef4444" font-size="13" font-weight="600">BEFORE</text>
+                            <line x1="40" y1="70" x2="250" y2="70" stroke="rgba(239,68,68,0.2)"/>
+                            <text x="145" y="95" text-anchor="middle" fill="#94a3b8" font-size="11">Inconsistent formats</text>
+                            <text x="145" y="115" text-anchor="middle" fill="#94a3b8" font-size="11">Missing metrics</text>
+                            <text x="145" y="135" text-anchor="middle" fill="#94a3b8" font-size="11">Manual data entry</text>
+                            <text x="145" y="155" text-anchor="middle" fill="#94a3b8" font-size="11">Delayed delivery</text>
+                            <text x="145" y="175" text-anchor="middle" fill="#94a3b8" font-size="11">LP confusion</text>
+
+                            <!-- Arrow -->
+                            <path d="M285 110 L315 110" stroke="#c9a962" stroke-width="3"/>
+                            <polygon points="315,104 330,110 315,116" fill="#c9a962"/>
+
+                            <!-- After -->
+                            <rect x="330" y="20" width="250" height="180" rx="8" fill="rgba(34,197,94,0.08)" stroke="rgba(34,197,94,0.3)"/>
+                            <text x="455" y="50" text-anchor="middle" fill="#22c55e" font-size="13" font-weight="600">AFTER</text>
+                            <line x1="350" y1="70" x2="560" y2="70" stroke="rgba(34,197,94,0.2)"/>
+                            <text x="455" y="95" text-anchor="middle" fill="#94a3b8" font-size="11">Branded templates</text>
+                            <text x="455" y="115" text-anchor="middle" fill="#94a3b8" font-size="11">Complete KPI dashboards</text>
+                            <text x="455" y="135" text-anchor="middle" fill="#94a3b8" font-size="11">Automated data flows</text>
+                            <text x="455" y="155" text-anchor="middle" fill="#94a3b8" font-size="11">On-time every quarter</text>
+                            <text x="455" y="175" text-anchor="middle" fill="#94a3b8" font-size="11">Institutional credibility</text>
+                        </svg>
+                    </div>
+
+                    <h3 class="modal-subtitle">Report Types</h3>
+                    <div class="modal-features">
+                        <div class="feature-item">
+                            <span class="feature-label">Quarterly Investor Updates</span>
+                            <span class="feature-desc">Property performance, capital account statements, and market commentary</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-label">Distribution Notices</span>
+                            <span class="feature-desc">Waterfall calculations with supporting documentation</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-label">Annual Reports</span>
+                            <span class="feature-desc">Comprehensive year-end packages with audited financials integration</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-label">Capital Call Memos</span>
+                            <span class="feature-desc">Clear documentation of funding requirements and use of proceeds</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Workflow Modal -->
+        <div class="modal" id="modal-workflow">
+            <button class="modal-close" aria-label="Close modal">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6L6 18M6 6l12 12"/>
+                </svg>
+            </button>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 2v4"/>
+                            <path d="M12 18v4"/>
+                            <path d="M4.93 4.93l2.83 2.83"/>
+                            <path d="M16.24 16.24l2.83 2.83"/>
+                            <path d="M2 12h4"/>
+                            <path d="M18 12h4"/>
+                            <path d="M4.93 19.07l2.83-2.83"/>
+                            <path d="M16.24 7.76l2.83-2.83"/>
+                        </svg>
+                    </div>
+                    <h2 class="modal-title">Workflow & Efficiency Optimization</h2>
+                </div>
+                <div class="modal-body">
+                    <p class="modal-intro">Eliminate repetitive manual work through structured templates and custom VBA automation. Reduce errors, accelerate timelines, and free your team to focus on analysis rather than data entry.</p>
+
+                    <div class="modal-diagram">
+                        <svg viewBox="0 0 600 200" class="diagram-svg">
+                            <!-- Time savings visualization -->
+                            <text x="300" y="30" text-anchor="middle" fill="#c9a962" font-size="14" font-weight="600">TIME SAVINGS EXAMPLE</text>
+
+                            <!-- Manual bar -->
+                            <text x="80" y="75" text-anchor="end" fill="#94a3b8" font-size="12">Manual Process</text>
+                            <rect x="100" y="60" width="400" height="30" rx="4" fill="rgba(239,68,68,0.2)" stroke="rgba(239,68,68,0.4)"/>
+                            <text x="300" y="80" text-anchor="middle" fill="#ef4444" font-size="11">8+ hours per deal</text>
+
+                            <!-- Automated bar -->
+                            <text x="80" y="135" text-anchor="end" fill="#94a3b8" font-size="12">Automated</text>
+                            <rect x="100" y="120" width="100" height="30" rx="4" fill="rgba(34,197,94,0.2)" stroke="rgba(34,197,94,0.4)"/>
+                            <text x="150" y="140" text-anchor="middle" fill="#22c55e" font-size="11">2 hours</text>
+
+                            <!-- Savings callout -->
+                            <rect x="420" y="110" width="160" height="50" rx="8" fill="rgba(201,169,98,0.15)" stroke="#c9a962"/>
+                            <text x="500" y="135" text-anchor="middle" fill="#c9a962" font-size="16" font-weight="700">75% Time Saved</text>
+                            <text x="500" y="152" text-anchor="middle" fill="#94a3b8" font-size="10">Per underwriting cycle</text>
+
+                            <!-- Arrow -->
+                            <path d="M210 135 L400 135" stroke="#c9a962" stroke-width="1" stroke-dasharray="5,5"/>
+                            <polygon points="400,131 415,135 400,139" fill="#c9a962"/>
+                        </svg>
+                    </div>
+
+                    <h3 class="modal-subtitle">Automation Solutions</h3>
+                    <div class="modal-features">
+                        <div class="feature-item">
+                            <span class="feature-label">Data Import Macros</span>
+                            <span class="feature-desc">Pull rent rolls, T-12s, and market data directly into your models</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-label">Report Generation</span>
+                            <span class="feature-desc">One-click creation of investor-ready PDFs and presentations</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-label">Sensitivity Runners</span>
+                            <span class="feature-desc">Automated scenario analysis across multiple variables</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-label">Data Validation</span>
+                            <span class="feature-desc">Built-in error checking and input quality controls</span>
+                        </div>
+                    </div>
+
+                    <h3 class="modal-subtitle">Template Library</h3>
+                    <ul class="modal-list">
+                        <li>Standardized underwriting templates by asset class</li>
+                        <li>Due diligence checklists and trackers</li>
+                        <li>Investment committee memo formats</li>
+                        <li>Portfolio dashboards and KPI trackers</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Capital Solutions Modal -->
+        <div class="modal" id="modal-capital">
+            <button class="modal-close" aria-label="Close modal">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 6L6 18M6 6l12 12"/>
+                </svg>
+            </button>
+            <div class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-icon">
+                        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                            <path d="M2 17l10 5 10-5"/>
+                            <path d="M2 12l10 5 10-5"/>
+                        </svg>
+                    </div>
+                    <h2 class="modal-title">LP Capital Solutions</h2>
+                </div>
+                <div class="modal-body">
+                    <p class="modal-intro">Equity placement services for qualified sponsors with institutional-quality opportunities. We connect developers and operators with family offices and institutional capital sources seeking direct CRE exposure.</p>
+
+                    <div class="modal-diagram">
+                        <svg viewBox="0 0 600 220" class="diagram-svg">
+                            <!-- Capital flow diagram -->
+                            <!-- LP Side -->
+                            <rect x="20" y="60" width="140" height="100" rx="8" fill="rgba(201,169,98,0.1)" stroke="#c9a962"/>
+                            <text x="90" y="95" text-anchor="middle" fill="#c9a962" font-size="12" font-weight="600">LP CAPITAL</text>
+                            <text x="90" y="115" text-anchor="middle" fill="#94a3b8" font-size="10">Family Offices</text>
+                            <text x="90" y="130" text-anchor="middle" fill="#94a3b8" font-size="10">Institutions</text>
+                            <text x="90" y="145" text-anchor="middle" fill="#94a3b8" font-size="10">HNW Investors</text>
+
+                            <!-- Arrow to YCA -->
+                            <path d="M170 110 L220 110" stroke="#c9a962" stroke-width="2"/>
+                            <polygon points="220,106 230,110 220,114" fill="#c9a962"/>
+
+                            <!-- YCA in middle -->
+                            <rect x="230" y="40" width="140" height="140" rx="8" fill="rgba(201,169,98,0.2)" stroke="#c9a962" stroke-width="2"/>
+                            <text x="300" y="80" text-anchor="middle" fill="#c9a962" font-size="11" font-weight="600">YOUNG CAPITAL</text>
+                            <text x="300" y="95" text-anchor="middle" fill="#c9a962" font-size="11" font-weight="600">ADVISORY</text>
+                            <line x1="250" y1="105" x2="350" y2="105" stroke="rgba(201,169,98,0.3)"/>
+                            <text x="300" y="125" text-anchor="middle" fill="#94a3b8" font-size="10">Deal Sourcing</text>
+                            <text x="300" y="140" text-anchor="middle" fill="#94a3b8" font-size="10">Due Diligence</text>
+                            <text x="300" y="155" text-anchor="middle" fill="#94a3b8" font-size="10">Structuring</text>
+                            <text x="300" y="170" text-anchor="middle" fill="#94a3b8" font-size="10">Placement</text>
+
+                            <!-- Arrow to Sponsors -->
+                            <path d="M380 110 L430 110" stroke="#c9a962" stroke-width="2"/>
+                            <polygon points="430,106 440,110 430,114" fill="#c9a962"/>
+
+                            <!-- Sponsor Side -->
+                            <rect x="440" y="60" width="140" height="100" rx="8" fill="rgba(201,169,98,0.1)" stroke="#c9a962"/>
+                            <text x="510" y="95" text-anchor="middle" fill="#c9a962" font-size="12" font-weight="600">SPONSORS</text>
+                            <text x="510" y="115" text-anchor="middle" fill="#94a3b8" font-size="10">Developers</text>
+                            <text x="510" y="130" text-anchor="middle" fill="#94a3b8" font-size="10">Operators</text>
+                            <text x="510" y="145" text-anchor="middle" fill="#94a3b8" font-size="10">Syndicators</text>
+                        </svg>
+                    </div>
+
+                    <h3 class="modal-subtitle">Target Asset Classes</h3>
+                    <ul class="modal-list">
+                        <li>Multifamily — Value-add and ground-up development</li>
+                        <li>Industrial — Last-mile logistics and warehouse</li>
+                        <li>Self-Storage — Acquisitions and conversions</li>
+                    </ul>
+
+                    <h3 class="modal-subtitle">Equity Check Sizes</h3>
+                    <div class="modal-features">
+                        <div class="feature-item">
+                            <span class="feature-label">$2M - $15M</span>
+                            <span class="feature-desc">Single-asset transactions with experienced sponsors</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-label">$15M - $50M+</span>
+                            <span class="feature-desc">Portfolio and programmatic JV opportunities</span>
+                        </div>
+                    </div>
+
+                    <h3 class="modal-subtitle">What We Look For</h3>
+                    <ul class="modal-list">
+                        <li>Sponsors with verifiable track records</li>
+                        <li>Institutional-quality underwriting and documentation</li>
+                        <li>Clear value creation thesis</li>
+                        <li>Aligned GP/LP structures</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script src="js/script.js"></script>
 </body>
