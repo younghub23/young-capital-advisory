@@ -1,6 +1,7 @@
 /**
  * Young Capital Advisory - Client Portal JavaScript
  * Handles authentication, dashboard functionality, and user interactions
+ * Supports Supabase authentication with localStorage fallback
  */
 
 (function() {
@@ -12,6 +13,9 @@
 
     const STORAGE_KEY = 'yca_portal_user';
     const STORAGE_DATA_KEY = 'yca_portal_data';
+
+    // Check if Supabase is configured
+    const useSupabase = typeof supabase !== 'undefined' && supabase !== null;
 
     let currentUser = null;
     let portalData = {
@@ -229,54 +233,91 @@
     /**
      * Handle login
      */
-    function handleLogin(e) {
+    async function handleLogin(e) {
         e.preventDefault();
 
         const formData = new FormData(loginForm);
         const email = formData.get('email');
         const password = formData.get('password');
 
-        // Simple validation (in production, this would be server-side)
+        // Simple validation
         if (!email || !password) {
             showToast('Please fill in all fields', 'error');
             return;
         }
 
-        // Demo login - in production, authenticate against backend
-        // Check if user exists in storage (from signup)
-        const existingUsers = JSON.parse(localStorage.getItem('yca_users') || '[]');
-        const user = existingUsers.find(u => u.email === email);
+        // Disable form while processing
+        const submitBtn = loginForm.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Signing in...';
 
-        if (user && user.password === password) {
-            currentUser = user;
-            saveUser(currentUser);
-            loadPortalData();
-            showDashboard();
-            showToast('Welcome back, ' + currentUser.firstname + '!');
-        } else if (!user) {
-            // For demo purposes, create user on first login
-            showToast('No account found. Please create an account first.', 'error');
-        } else {
-            showToast('Invalid email or password', 'error');
+        try {
+            if (useSupabase) {
+                // Supabase authentication
+                const { data, error } = await supabase.auth.signInWithPassword({
+                    email: email,
+                    password: password
+                });
+
+                if (error) {
+                    showToast(error.message, 'error');
+                    return;
+                }
+
+                // Get user metadata or create profile
+                currentUser = {
+                    id: data.user.id,
+                    email: data.user.email,
+                    firstname: data.user.user_metadata?.firstname || email.split('@')[0],
+                    lastname: data.user.user_metadata?.lastname || '',
+                    company: data.user.user_metadata?.company || '',
+                    phone: data.user.user_metadata?.phone || ''
+                };
+                saveUser(currentUser);
+                loadPortalData();
+                showDashboard();
+                showToast('Welcome back, ' + currentUser.firstname + '!');
+            } else {
+                // Fallback to localStorage
+                const existingUsers = JSON.parse(localStorage.getItem('yca_users') || '[]');
+                const user = existingUsers.find(u => u.email === email);
+
+                if (user && user.password === password) {
+                    currentUser = user;
+                    saveUser(currentUser);
+                    loadPortalData();
+                    showDashboard();
+                    showToast('Welcome back, ' + currentUser.firstname + '!');
+                } else if (!user) {
+                    showToast('No account found. Please create an account first.', 'error');
+                } else {
+                    showToast('Invalid email or password', 'error');
+                }
+            }
+        } catch (err) {
+            console.error('Login error:', err);
+            showToast('An error occurred. Please try again.', 'error');
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalText;
         }
     }
 
     /**
      * Handle signup
      */
-    function handleSignup(e) {
+    async function handleSignup(e) {
         e.preventDefault();
 
         const formData = new FormData(signupForm);
         const userData = {
-            id: generateId(),
             firstname: formData.get('firstname'),
             lastname: formData.get('lastname'),
             company: formData.get('company'),
             email: formData.get('email'),
             password: formData.get('password'),
-            phone: '',
-            createdAt: new Date().toISOString()
+            phone: ''
         };
 
         // Validation
@@ -285,48 +326,100 @@
             return;
         }
 
-        if (userData.password.length < 8) {
-            showToast('Password must be at least 8 characters', 'error');
+        if (userData.password.length < 6) {
+            showToast('Password must be at least 6 characters', 'error');
             return;
         }
 
-        // Store user (in production, this would go to a backend)
-        const existingUsers = JSON.parse(localStorage.getItem('yca_users') || '[]');
+        // Disable form while processing
+        const submitBtn = signupForm.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Creating account...';
 
-        if (existingUsers.find(u => u.email === userData.email)) {
-            showToast('An account with this email already exists', 'error');
-            return;
+        try {
+            if (useSupabase) {
+                // Supabase authentication
+                const { data, error } = await supabase.auth.signUp({
+                    email: userData.email,
+                    password: userData.password,
+                    options: {
+                        data: {
+                            firstname: userData.firstname,
+                            lastname: userData.lastname,
+                            company: userData.company
+                        }
+                    }
+                });
+
+                if (error) {
+                    showToast(error.message, 'error');
+                    return;
+                }
+
+                // Check if email confirmation is required
+                if (data.user && !data.session) {
+                    showToast('Please check your email to confirm your account.', 'success');
+                    showLoginForm();
+                    return;
+                }
+
+                currentUser = {
+                    id: data.user.id,
+                    email: data.user.email,
+                    firstname: userData.firstname,
+                    lastname: userData.lastname,
+                    company: userData.company,
+                    phone: ''
+                };
+            } else {
+                // Fallback to localStorage
+                const existingUsers = JSON.parse(localStorage.getItem('yca_users') || '[]');
+
+                if (existingUsers.find(u => u.email === userData.email)) {
+                    showToast('An account with this email already exists', 'error');
+                    return;
+                }
+
+                userData.id = generateId();
+                userData.createdAt = new Date().toISOString();
+                existingUsers.push(userData);
+                localStorage.setItem('yca_users', JSON.stringify(existingUsers));
+
+                currentUser = userData;
+            }
+
+            saveUser(currentUser);
+
+            // Initialize their data
+            portalData = {
+                requests: [],
+                meetings: [],
+                files: [],
+                activity: [{
+                    id: generateId(),
+                    type: 'account',
+                    message: 'Account created',
+                    timestamp: new Date().toISOString()
+                }]
+            };
+            savePortalData();
+
+            showDashboard();
+            showToast('Account created successfully! Welcome to Young Capital Advisory.');
+        } catch (err) {
+            console.error('Signup error:', err);
+            showToast('An error occurred. Please try again.', 'error');
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalText;
         }
-
-        existingUsers.push(userData);
-        localStorage.setItem('yca_users', JSON.stringify(existingUsers));
-
-        // Log them in
-        currentUser = userData;
-        saveUser(currentUser);
-
-        // Initialize their data
-        portalData = {
-            requests: [],
-            meetings: [],
-            files: [],
-            activity: [{
-                id: generateId(),
-                type: 'account',
-                message: 'Account created',
-                timestamp: new Date().toISOString()
-            }]
-        };
-        savePortalData();
-
-        showDashboard();
-        showToast('Account created successfully! Welcome to Young Capital Advisory.');
     }
 
     /**
      * Handle forgot password
      */
-    function handleForgotPassword(e) {
+    async function handleForgotPassword(e) {
         e.preventDefault();
 
         const formData = new FormData(forgotForm);
@@ -337,16 +430,47 @@
             return;
         }
 
-        // In production, this would send an email
-        showToast('If an account exists with this email, you will receive a reset link shortly.');
-        forgotForm.reset();
-        showLoginForm();
+        const submitBtn = forgotForm.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
+
+        try {
+            if (useSupabase) {
+                const { error } = await supabase.auth.resetPasswordForEmail(email, {
+                    redirectTo: window.location.origin + '/portal.html'
+                });
+
+                if (error) {
+                    showToast(error.message, 'error');
+                    return;
+                }
+            }
+
+            showToast('If an account exists with this email, you will receive a reset link shortly.');
+            forgotForm.reset();
+            showLoginForm();
+        } catch (err) {
+            console.error('Password reset error:', err);
+            showToast('An error occurred. Please try again.', 'error');
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalText;
+        }
     }
 
     /**
      * Handle logout
      */
-    function handleLogout() {
+    async function handleLogout() {
+        try {
+            if (useSupabase) {
+                await supabase.auth.signOut();
+            }
+        } catch (err) {
+            console.error('Logout error:', err);
+        }
+
         currentUser = null;
         clearUser();
         showAuthSection();
@@ -1000,8 +1124,37 @@
     // Initialization
     // ==========================================================================
 
-    function init() {
-        // Check if user is logged in
+    async function init() {
+        if (useSupabase) {
+            // Check for existing Supabase session
+            const { data: { session } } = await supabase.auth.getSession();
+
+            if (session) {
+                currentUser = {
+                    id: session.user.id,
+                    email: session.user.email,
+                    firstname: session.user.user_metadata?.firstname || session.user.email.split('@')[0],
+                    lastname: session.user.user_metadata?.lastname || '',
+                    company: session.user.user_metadata?.company || '',
+                    phone: session.user.user_metadata?.phone || ''
+                };
+                saveUser(currentUser);
+                loadPortalData();
+                showDashboard();
+                return;
+            }
+
+            // Listen for auth state changes
+            supabase.auth.onAuthStateChange((event, session) => {
+                if (event === 'SIGNED_OUT') {
+                    currentUser = null;
+                    clearUser();
+                    showAuthSection();
+                }
+            });
+        }
+
+        // Fallback: Check localStorage for saved user
         currentUser = loadUser();
 
         if (currentUser) {
