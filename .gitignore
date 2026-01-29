@@ -1,0 +1,13 @@
+# Supabase credentials (keep out of version control)
+public/js/supabase-config.js
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+
+# Logs
+*.log
