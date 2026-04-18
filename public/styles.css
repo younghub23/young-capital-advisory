@@ -193,8 +193,6 @@ em { font-style: italic; }
   padding: var(--pad-y) var(--gutter);
   position: relative;
 }
-.section--paper { background: var(--paper-deep); max-width: none; }
-.section--paper > * { max-width: var(--max); margin-left: auto; margin-right: auto; }
 
 .section--dark {
   background: var(--dark); color: var(--dark-ink);
@@ -385,6 +383,7 @@ em { font-style: italic; }
   gap: 0;
   border-top: 1px solid var(--rule);
 }
+.practice__grid--two { grid-template-columns: repeat(2, 1fr); }
 .practice {
   padding: 2.2rem 2rem 2.5rem;
   border-bottom: 1px solid var(--rule);
@@ -430,141 +429,6 @@ em { font-style: italic; }
 @media (max-width: 900px) {
   .practice__grid { grid-template-columns: 1fr; }
   .practice + .practice { border-left: 0; }
-}
-
-/* ------------------------------------------------------------------ */
-/*  Research / Journal                                                */
-/* ------------------------------------------------------------------ */
-
-.journal {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0;
-  border-top: 1px solid var(--rule);
-}
-.journal__item {
-  padding: 2rem 2rem 2.2rem;
-  border-bottom: 1px solid var(--rule);
-  position: relative;
-  transition: background .3s ease;
-}
-.journal__item:nth-child(odd)  { border-right: 1px solid var(--rule); }
-.journal__item:hover { background: rgba(199,82,43,0.08); }
-.journal__meta {
-  display: flex; gap: 1.2rem;
-  font-family: var(--mono); font-size: 11px;
-  letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--ink-mute);
-  margin-bottom: 1.1rem;
-}
-.journal__meta span:first-child { color: var(--oxblood); }
-.journal__title {
-  font-family: var(--serif);
-  font-weight: 400;
-  font-size: clamp(1.35rem, 1.8vw, 1.75rem);
-  line-height: 1.14;
-  letter-spacing: -0.01em;
-  margin: 0 0 .9rem;
-  max-width: 36ch;
-}
-.journal__title a {
-  background-image: linear-gradient(var(--ink), var(--ink));
-  background-size: 0% 1px;
-  background-repeat: no-repeat;
-  background-position: 0 100%;
-  transition: background-size .35s ease;
-  padding-bottom: 2px;
-}
-.journal__title a:hover { background-size: 100% 1px; }
-.journal__dek {
-  color: var(--ink-soft);
-  font-family: var(--serif);
-  font-size: 1.02rem;
-  line-height: 1.55;
-  max-width: 42ch;
-  margin-bottom: 1.1rem;
-}
-.journal__credit {
-  display: flex; gap: 1.5rem;
-  font-family: var(--mono); font-size: 11px;
-  letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--ink-mute);
-}
-
-.journal__all {
-  padding: 1.3rem 0 0;
-  font-family: var(--serif); font-style: italic;
-  font-size: 1.1rem;
-}
-.journal__all a {
-  border-bottom: 1px solid var(--ink);
-  padding-bottom: 2px;
-  transition: color .2s ease, border-color .2s ease;
-}
-.journal__all a:hover { color: var(--oxblood); border-color: var(--oxblood); }
-
-@media (max-width: 800px) {
-  .journal { grid-template-columns: 1fr; }
-  .journal__item:nth-child(odd) { border-right: 0; }
-}
-
-/* ------------------------------------------------------------------ */
-/*  Engagements ledger                                                */
-/* ------------------------------------------------------------------ */
-
-.ledger {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 15px;
-}
-.ledger thead th {
-  text-align: left;
-  font-family: var(--mono);
-  font-size: 10.5px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--ink-mute);
-  font-weight: 500;
-  padding: 1rem .5rem;
-  border-top: 1px solid var(--ink);
-  border-bottom: 1px solid var(--rule);
-}
-.ledger tbody td {
-  padding: 1.2rem .5rem;
-  border-bottom: 1px solid var(--rule);
-  vertical-align: top;
-  color: var(--ink-soft);
-}
-.ledger tbody tr { transition: background .2s ease; }
-.ledger tbody tr:hover { background: rgba(199,82,43,0.08); }
-.ledger tbody td:first-child {
-  font-family: var(--mono);
-  color: var(--oxblood);
-  font-size: 13px;
-  letter-spacing: 0.05em;
-  white-space: nowrap;
-}
-.ledger tbody td:nth-child(2),
-.ledger tbody td:nth-child(3) {
-  font-family: var(--serif);
-  font-size: 1.05rem;
-  color: var(--ink);
-}
-.ledger tbody td:nth-child(4),
-.ledger tbody td:nth-child(5) {
-  font-family: var(--mono);
-  font-size: 12.5px;
-  color: var(--ink-soft);
-  white-space: nowrap;
-}
-@media (max-width: 700px) {
-  .ledger thead { display: none; }
-  .ledger, .ledger tbody, .ledger tr, .ledger td { display: block; width: 100%; }
-  .ledger tbody tr {
-    padding: 1rem 0; border-bottom: 1px solid var(--rule);
-  }
-  .ledger tbody td { border: 0; padding: .2rem 0; }
-  .ledger tbody td:first-child { margin-bottom: .4rem; }
 }
 
 /* ------------------------------------------------------------------ */
@@ -619,7 +483,7 @@ em { font-style: italic; }
 }
 
 /* ------------------------------------------------------------------ */
-/*  Colophon / Footer                                                 */
+/*  Footer                                                            */
 /* ------------------------------------------------------------------ */
 
 .colophon {
