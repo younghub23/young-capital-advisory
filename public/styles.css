@@ -1,22 +1,20 @@
 /* ------------------------------------------------------------------ *
- *  Young Capital Advisory
- *  A hand-set editorial system. Paper, ink, rule, and a single oxblood.
- *  References: Impossible Bureau (restraint, scale, rhythm) and the
- *  Codex Atlanticus digital archive (plates, captions, antiqued warmth).
+ *  Young Capital Advisory — Night edition
+ *  Deep warm-charcoal ground, cream ink, copper-rust accent.
  * ------------------------------------------------------------------ */
 
 :root {
-  --paper:        #F1EADC;   /* warm ivory body */
-  --paper-deep:   #E7DDC8;   /* section alternate */
-  --ink:          #15120E;   /* near-black, warm */
-  --ink-soft:     #4A423A;   /* secondary copy */
-  --ink-mute:     #7A7063;   /* captions, metadata */
-  --rule:         #CFC4AE;   /* hairlines */
-  --oxblood:      #6B2416;   /* single accent */
-  --oxblood-ink:  #8A2E1C;
-  --dark:         #1C1712;   /* dark section */
-  --dark-ink:     #EADFC7;   /* copy on dark */
-  --dark-mute:    #9A8E76;
+  --paper:        #14110D;   /* deep warm charcoal — the page */
+  --paper-deep:   #1C1813;   /* section alternate, slightly lifted */
+  --ink:          #ECDFC4;   /* warm cream, primary copy */
+  --ink-soft:     #B6A88B;   /* secondary copy */
+  --ink-mute:     #7A6E58;   /* captions, metadata */
+  --rule:         #322A21;   /* hairlines */
+  --oxblood:      #C7522B;   /* single accent — copper-rust */
+  --oxblood-ink:  #DA6238;
+  --dark:         #080603;   /* deepest emphasis section */
+  --dark-ink:     #ECDFC4;
+  --dark-mute:    #7A6E58;
 
   --serif: "Fraunces", "Iowan Old Style", "Baskerville", "Georgia", serif;
   --sans:  "Inter", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
@@ -40,10 +38,10 @@ body {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* subtle paper grain */
+  /* subtle warm grain on dark ground */
   background-image:
-    radial-gradient(rgba(80,60,40,0.045) 1px, transparent 1.2px),
-    radial-gradient(rgba(80,60,40,0.035) 1px, transparent 1.2px);
+    radial-gradient(rgba(220,200,160,0.030) 1px, transparent 1.2px),
+    radial-gradient(rgba(220,200,160,0.022) 1px, transparent 1.2px);
   background-size: 3px 3px, 7px 7px;
   background-position: 0 0, 1px 2px;
 }
@@ -351,14 +349,14 @@ em { font-style: italic; }
 .toc li + li { border-top: 1px solid var(--rule); }
 .toc a {
   display: grid;
-  grid-template-columns: 50px 1.2fr 2fr auto;
+  grid-template-columns: 50px minmax(14ch, 1.2fr) 2fr;
   align-items: baseline;
   gap: 1rem;
   padding: 1.3rem 0;
   transition: background .25s ease, padding .25s ease;
 }
 .toc a:hover {
-  background: linear-gradient(to right, transparent, rgba(107,36,22,0.04) 10%, rgba(107,36,22,0.04) 90%, transparent);
+  background: linear-gradient(to right, transparent, rgba(199,82,43,0.10) 10%, rgba(199,82,43,0.10) 90%, transparent);
   padding-left: .6rem;
 }
 .toc__num {
@@ -372,13 +370,8 @@ em { font-style: italic; }
   letter-spacing: -0.01em;
 }
 .toc__lede { color: var(--ink-soft); font-size: .95rem; }
-.toc__page {
-  font-family: var(--mono); font-size: 11px;
-  color: var(--ink-mute); letter-spacing: 0.1em;
-  justify-self: end;
-}
 @media (max-width: 800px) {
-  .toc a { grid-template-columns: 40px 1fr auto; }
+  .toc a { grid-template-columns: 40px 1fr; }
   .toc__lede { display: none; }
 }
 
@@ -456,7 +449,7 @@ em { font-style: italic; }
   transition: background .3s ease;
 }
 .journal__item:nth-child(odd)  { border-right: 1px solid var(--rule); }
-.journal__item:hover { background: rgba(107,36,22,0.035); }
+.journal__item:hover { background: rgba(199,82,43,0.08); }
 .journal__meta {
   display: flex; gap: 1.2rem;
   font-family: var(--mono); font-size: 11px;
@@ -543,7 +536,7 @@ em { font-style: italic; }
   color: var(--ink-soft);
 }
 .ledger tbody tr { transition: background .2s ease; }
-.ledger tbody tr:hover { background: rgba(107,36,22,0.035); }
+.ledger tbody tr:hover { background: rgba(199,82,43,0.08); }
 .ledger tbody td:first-child {
   font-family: var(--mono);
   color: var(--oxblood);
@@ -626,61 +619,6 @@ em { font-style: italic; }
 }
 
 /* ------------------------------------------------------------------ */
-/*  Contact                                                           */
-/* ------------------------------------------------------------------ */
-
-.contact__grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: clamp(2rem, 5vw, 5rem);
-  border-top: 1px solid var(--rule);
-  padding-top: 3rem;
-}
-.contact__book {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2.5rem 3rem;
-}
-.contact__book dt {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--ink-mute);
-  margin-bottom: .6rem;
-}
-.contact__book dd {
-  margin: 0;
-  font-family: var(--serif);
-  font-size: 1.08rem;
-  line-height: 1.55;
-  color: var(--ink);
-}
-.contact__book a {
-  color: var(--oxblood);
-  border-bottom: 1px solid var(--rule);
-  padding-bottom: 1px;
-  transition: border-color .2s ease;
-}
-.contact__book a:hover { border-color: var(--oxblood); }
-
-.contact__note {
-  padding: 1.5rem;
-  background: var(--paper-deep);
-  border: 1px solid var(--rule);
-}
-.contact__note .eyebrow { display: block; margin-bottom: 1rem; }
-.contact__note p {
-  font-family: var(--serif);
-  font-size: 1rem;
-  line-height: 1.55;
-  color: var(--ink-soft);
-}
-@media (max-width: 800px) {
-  .contact__grid, .contact__book { grid-template-columns: 1fr; }
-}
-
-/* ------------------------------------------------------------------ */
 /*  Colophon / Footer                                                 */
 /* ------------------------------------------------------------------ */
 
@@ -715,7 +653,7 @@ em { font-style: italic; }
 .colophon__grid {
   max-width: var(--max); margin: 0 auto;
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr 1fr;
+  grid-template-columns: 2fr 1fr 1fr;
   gap: 2.5rem;
 }
 .colophon__label {
